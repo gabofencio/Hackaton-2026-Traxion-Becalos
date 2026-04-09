@@ -322,11 +322,16 @@
         border: none;
     }
 
-    .chat-form-inline button {
+    .chat-form-inline button,  #contacto{
         background: var(--primary-color);
         border: none;
         padding: 8px;
         border-radius: 10px;
         cursor: pointer;
         flex-wrap: wrap;
+    }
+    #contacto{
+        color:var(--secondary-color);
+        text-decoration: none;
+        font-weight: 500;
     }
