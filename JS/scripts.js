@@ -10,6 +10,9 @@ toggleBtn.addEventListener("click", () => {
         input.focus();
     }
 });
+// boton de envio.
+
+
 
 function calcularRiesgo(data) {
     let riesgo = 0;
@@ -91,6 +94,14 @@ function run() {
         kmLlantas: Number(document.getElementById("kmLlantas").value)
     };
 
+    const campos = document.querySelectorAll("#chatBody input, #chatBody select");
+
+    for (let campo of campos) {
+        if (campo.value === "") {
+            alert("Completa todos los campos");
+            return;
+        }
+    }
     const res = evaluarUnidad(data);
 
     document.getElementById("resultado").innerHTML = `
@@ -115,4 +126,93 @@ function colorRiesgo(nivel) {
     if (nivel === "BAJO") return "green";
     if (nivel === "MEDIO") return "orange";
     return "red";
+}
+
+
+
+// conversación del chatbot
+
+let step = 0;
+function sendMessage() {
+    const input = document.getElementById("userInput");
+    const chatBox = document.getElementById("chatBox");
+
+    const userText = input.value.trim();
+    if (!userText) return;
+
+    // Mensaje del usuario
+    chatBox.innerHTML += `<div class="message user">${userText}</div>`;
+    input.value = "";
+
+    // Respuesta del asistente
+    setTimeout(() => {
+        if (step === 0) {
+            if (
+                userText.toLowerCase().includes("log") ||
+                userText.toLowerCase().includes("trans") ||
+                userText.toLowerCase().includes("mov")
+            ) {
+                step = 1;
+                chatBox.innerHTML += `<div class="message bot">
+        Perfecto, vamos a evaluar tu unidad. Por favor proporciona la siguiente información:
+        <div class="chat-form-inline">
+                       <div class="form-elements">
+                <label for="km">Km sin servicio:</label>
+                <input id="km" placeholder="Km sin servicio" type="number">
+            </div>
+            <div class="form-elements">
+                <label for="edad">Años de servicio de unidad:</label>
+                <input id="edad" placeholder="años de servicio" type="number">
+            </div>
+            <div class="form-elements">
+                <label for="conduccion">Estilo de conducción del operador:</label>
+                <select id="conduccion">
+                    <option value="normal">Normal</option>
+                    <option value="agresiva">Agresiva</option>
+                </select>
+            </div>
+            <div class="form-elements">
+                <label for="carga">Tamaño de carga transportada:</label>
+                <select id="carga">
+                    <option value="ligera">Ligera</option>
+                    <option value="pesada">Pesada</option>
+                </select>
+            </div>
+            <div class="form-elements">
+                <label for="kmLlantas">Kilometraje desde el ultimo cambio de llantas:</label>
+                <input id="kmLlantas" placeholder="Km en llantas" type="number">
+            </div>
+            <div class="form-elements">
+                <label for="codigoFalla">Código de falla:</label>
+                <select id="codigoFalla">
+                    <option value="none">ninguno</option>
+                    <optgroup label="Motor">
+                        <option value="motor">P2133</option>
+                        <option value="motor2">P0300</option>
+                    </optgroup>
+                    <optgroup label="Frenos y Suspensión">
+                        <option value="frenado">C1279</option>
+                        <option value="frenado2">C1280</option>
+                    </optgroup>
+                    <optgroup label="Comunicación">
+                        <option value="comunicacion">U1203</option>
+                        <option value="comunicacion2">U0121</option>
+                    </optgroup>
+                    <optgroup label="Sensores">
+                        <option value="sensorOxigeno">P0135</option>
+                        <option value="sensorTemperatura">P0113</option>
+                </select>
+            </div>
+            <button onclick="run()">Evaluar</button>
+            <div id="resultado"></div>
+        </div>
+    </div>`;
+                step++;
+            } else {
+                chatBox.innerHTML += `<div class="message bot">Por favor escribe: Logística, Transporte de Carga o Movilización Urbana</div>`;
+            }
+        }
+
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }, 500);
 }

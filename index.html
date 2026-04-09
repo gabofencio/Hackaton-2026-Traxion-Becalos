@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <video src="assets/VID/traxion-bg.mp4" autoplay muted loop webkit-playsinline playsinline class="bg-video"></video>
     <header>
         <nav class="navigation">
             <div class="container" id="topPart">
@@ -35,84 +36,40 @@
                 </div>
             </div>
             <div class="container" id="bottomPart">
-                <a href="index.html" class="logo"><img src="/ASSETS/Logotipo.svg" class="logo"></a>
+                <a href="index.html" class="logo"><img src="ASSETS/Logotipo.svg" class="logo"></a>
 
                 <div class="link-container" id="menuContainer">
                     <ul class="navLinks">
-                        <li><a href="index.html" target="_blank" rel="noopener noreferrer">Servicios</a></li>
-                        <li><a href="about.html" target="_blank" rel="noopener noreferrer">Soluciones</a></li>
-                        <li><a href="services.html" target="_blank" rel="noopener noreferrer">Nosotros</a></li>
-                        <li><a href="services.html" target="_blank" rel="noopener noreferrer">Inversionistas</a></li>
-                        <li><a href="services.html" target="_blank" rel="noopener noreferrer">Sostenibilidad</a></li>
-                        <li><a href="services.html" target="_blank" rel="noopener noreferrer">Integridad</a></li>
-                        <li><a href="services.html" target="_blank" rel="noopener noreferrer">Empresas</a></li>
+                        <li><a href="https://traxion.global/es/servicios/movilidad-carga" target="_blank" rel="noopener noreferrer">Servicios</a></li>
+                        <li><a href="https://traxion.global/es/soluciones/industria" target="_blank" rel="noopener noreferrer">Soluciones</a></li>
+                        <li><a href="https://traxion.global/es/nosotros" target="_blank" rel="noopener noreferrer">Nosotros</a></li>
+                        <li><a href="https://traxion.global/es/inversionistas" target="_blank" rel="noopener noreferrer">Inversionistas</a></li>
+                        <li><a href="https://traxion.global/es/sostenibilidad" target="_blank" rel="noopener noreferrer">Sostenibilidad</a></li>
+                        <li><a href="https://traxion.global/es/integridad" target="_blank" rel="noopener noreferrer">Integridad</a></li>
+                        <li><a href="https://traxion.global/es/soluciones/empresas" target="_blank" rel="noopener noreferrer">Empresas</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-
-
     <div class="chat-bot-container">
+        <div class="chat-c1">
         <div class="chat-header">
             <h3>Evaluador de Mantenimiento</h3>
         </div>
-        <div class="chat-form" id="chatBody">
-            <div class="form-elements">
-                <label for="km">Km sin servicio:</label>
-                <input id="km" placeholder="Km sin servicio">
-            </div>
-            <div class="form-elements">
-                <label for="edad">Años de servicio de unidad:</label>
-                <input id="edad" placeholder="años de servicio">
-            </div>
-            <div class="form-elements">
-                <label for="conduccion">Estilo de conducción del operador:</label>
-                <select id="conduccion">
-                    <option value="normal">Normal</option>
-                    <option value="agresiva">Agresiva</option>
-                </select>
-            </div>
-            <div class="form-elements">
-                <label for="carga">Tamaño de carga transportada:</label>
-                <select id="carga">
-                    <option value="ligera">Ligera</option>
-                    <option value="pesada">Pesada</option>
-                </select>
-            </div>
-            <div class="form-elements">
-                <label for="kmLlantas">Kilometraje desde el ultimo cambio de llantas:</label>
-                <input id="kmLlantas" placeholder="Km en llantas">
-            </div>
-            <div class="form-elements">
-                <label for="codigoFalla">Código de falla:</label>
-                <select id="codigoFalla">
-                    <option value="none">ninguno</option>
-                    <optgroup label="Motor">
-                        <option value="motor">P2133</option>
-                        <option value="motor2">P0300</option>
-                    </optgroup>
-                    <optgroup label="Frenos y Suspensión">
-                        <option value="frenado">C1279</option>
-                        <option value="frenado2">C1280</option>
-                    </optgroup>
-                    <optgroup label="Comunicación">
-                        <option value="comunicacion">U1203</option>
-                        <option value="comunicacion2">U0121</option>
-                    </optgroup>
-                    <optgroup label="Sensores">
-                        <option value="sensorOxigeno">P0135</option>
-                        <option value="sensorTemperatura">P0113</option>
-                </select>
-            </div>
-            <button onclick="run()">Evaluar</button>
-            <div id="resultado"></div>
+
+        <div class="chat-box" id="chatBox">
+            <div class="message bot">Hola, Soy el analista de riesgo de Traxión, ayudo a planificar el mantenimiento de
+                tus unidades.</div>
+            <div class="message bot">¿De qué rama es tu unidad? (Logística / Transporte de Carga / Movilidad Urbana)</div>
+        </div>
+
+        <div class="chat-input">
+            <input type="text" id="userInput" placeholder="Escribe tu respuesta..." />
+            <button onclick="sendMessage()">Enviar</button>
+        </div>
         </div>
     </div>
-
-
-
-
     <script src="JS/scripts.js"></script>
 </body>
 

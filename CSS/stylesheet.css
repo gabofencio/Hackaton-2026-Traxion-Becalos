@@ -11,6 +11,23 @@
         margin: 0;
     }
 
+    a,
+    a:visited,
+    a:active {
+        color: var(--secondary-color);
+        text-decoration: none;
+    }
+
+    .bg-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100vh;
+        overflow: hidden;
+        object-fit: cover;
+        z-index: -1;
+    }
 
     /* HEADER */
     .navigation {
@@ -192,6 +209,7 @@
 
 
 
+    /*Chat Bot*/
     .chat-bot-container {
         display: flex;
         flex-direction: column;
@@ -202,6 +220,7 @@
         border: 2px solid var(--secondary-color);
 
     }
+
     .chat-form {
         display: flex;
         flex-direction: column;
@@ -212,10 +231,102 @@
         border: 2px solid var(--secondary-color);
         border-radius: 10px;
     }
+
     .form-elements {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 0.5rem;
+    }
+
+    .chat-c1 {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 400px;
+        height: 600px;
+        background: var(--secondary-color);
+        padding: 10px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+
+    }
+
+    .chat-box {
+        flex: 1;
+        overflow-y: auto;
+        scrollbar-width: none;
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+    }
+
+    .message {
+        padding: 8px 12px;
+        margin: 5px 0;
+        border-radius: 15px;
+        max-width: 70%;
+    }
+
+    .bot {
+        background: #333;
+        color: white;
+        align-self: flex-start;
+    }
+
+    .user {
+        background: var(--primary-color);
+        align-self: flex-end !important;
+    }
+
+    .chat-header {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--primary-color);
+        flex-shrink: 0;
+
+    }
+
+    .chat-input {
+        display: flex;
+        gap: 5px;
+    }
+
+    .chat-input input {
+        flex: 1;
+        padding: 8px;
+        border-radius: 10px;
+        border: none;
+    }
+
+    .chat-input button {
+        padding: 8px 15px;
+        border: none;
+        background: var(--primary-color);
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .chat-form-inline {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 10px;
+    }
+
+    .chat-form-inline input,
+    .chat-form-inline select {
+        padding: 6px;
+        border-radius: 8px;
+        border: none;
+    }
+
+    .chat-form-inline button {
+        background: var(--primary-color);
+        border: none;
+        padding: 8px;
+        border-radius: 10px;
+        cursor: pointer;
+        flex-wrap: wrap;
     }
