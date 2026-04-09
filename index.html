@@ -19,7 +19,7 @@
                 <div class="right-link-container">
                     <div class="search-container">
                         <button class="search-icon" id="searchToggle">
-                            🔍
+                            <img src="ASSETS/search-line.svg" alt="botón de busqueda" class="search-icon">
                         </button>
 
                         <input type="text" class="search-input" id="searchInput" placeholder="Buscar..." />
@@ -53,7 +53,62 @@
     </header>
 
 
-
+    <div class="chat-bot-container">
+        <div class="chat-header">
+            <h3>Evaluador de Mantenimiento</h3>
+        </div>
+        <div class="chat-form" id="chatBody">
+            <div class="form-elements">
+                <label for="km">Km sin servicio:</label>
+                <input id="km" placeholder="Km sin servicio">
+            </div>
+            <div class="form-elements">
+                <label for="edad">Años de servicio de unidad:</label>
+                <input id="edad" placeholder="años de servicio">
+            </div>
+            <div class="form-elements">
+                <label for="conduccion">Estilo de conducción del operador:</label>
+                <select id="conduccion">
+                    <option value="normal">Normal</option>
+                    <option value="agresiva">Agresiva</option>
+                </select>
+            </div>
+            <div class="form-elements">
+                <label for="carga">Tamaño de carga transportada:</label>
+                <select id="carga">
+                    <option value="ligera">Ligera</option>
+                    <option value="pesada">Pesada</option>
+                </select>
+            </div>
+            <div class="form-elements">
+                <label for="kmLlantas">Kilometraje desde el ultimo cambio de llantas:</label>
+                <input id="kmLlantas" placeholder="Km en llantas">
+            </div>
+            <div class="form-elements">
+                <label for="codigoFalla">Código de falla:</label>
+                <select id="codigoFalla">
+                    <option value="none">ninguno</option>
+                    <optgroup label="Motor">
+                        <option value="motor">P2133</option>
+                        <option value="motor2">P0300</option>
+                    </optgroup>
+                    <optgroup label="Frenos y Suspensión">
+                        <option value="frenado">C1279</option>
+                        <option value="frenado2">C1280</option>
+                    </optgroup>
+                    <optgroup label="Comunicación">
+                        <option value="comunicacion">U1203</option>
+                        <option value="comunicacion2">U0121</option>
+                    </optgroup>
+                    <optgroup label="Sensores">
+                        <option value="sensorOxigeno">P0135</option>
+                        <option value="sensorTemperatura">P0113</option>
+                </select>
+            </div>
+            <button onclick="run()">Evaluar</button>
+            <div id="resultado"></div>
+        </div>
+    </div>
 
 
 
