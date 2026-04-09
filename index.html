@@ -32,7 +32,8 @@
                             <span class="slider"></span>
                         </label> EN
                     </div>
-                    <a href="https://traxion.global/es/contacto" target="_blank" rel="noopener noreferrer" id="contacto">contacto</a>
+                    <a href="https://traxion.global/es/contacto" target="_blank" rel="noopener noreferrer"
+                        id="contacto">contacto</a>
                 </div>
             </div>
             <div class="container" id="bottomPart">
@@ -40,37 +41,69 @@
 
                 <div class="link-container" id="menuContainer">
                     <ul class="navLinks">
-                        <li><a href="https://traxion.global/es/servicios/movilidad-carga" target="_blank" rel="noopener noreferrer">Servicios</a></li>
-                        <li><a href="https://traxion.global/es/soluciones/industria" target="_blank" rel="noopener noreferrer">Soluciones</a></li>
-                        <li><a href="https://traxion.global/es/nosotros" target="_blank" rel="noopener noreferrer">Nosotros</a></li>
-                        <li><a href="https://traxion.global/es/inversionistas" target="_blank" rel="noopener noreferrer">Inversionistas</a></li>
-                        <li><a href="https://traxion.global/es/sostenibilidad" target="_blank" rel="noopener noreferrer">Sostenibilidad</a></li>
-                        <li><a href="https://traxion.global/es/integridad" target="_blank" rel="noopener noreferrer">Integridad</a></li>
-                        <li><a href="https://traxion.global/es/soluciones/empresas" target="_blank" rel="noopener noreferrer">Empresas</a></li>
+                        <li><a href="https://traxion.global/es/servicios/movilidad-carga" target="_blank"
+                                rel="noopener noreferrer">Servicios</a></li>
+                        <li><a href="https://traxion.global/es/soluciones/industria" target="_blank"
+                                rel="noopener noreferrer">Soluciones</a></li>
+                        <li><a href="https://traxion.global/es/nosotros" target="_blank"
+                                rel="noopener noreferrer">Nosotros</a></li>
+                        <li><a href="https://traxion.global/es/inversionistas" target="_blank"
+                                rel="noopener noreferrer">Inversionistas</a></li>
+                        <li><a href="https://traxion.global/es/sostenibilidad" target="_blank"
+                                rel="noopener noreferrer">Sostenibilidad</a></li>
+                        <li><a href="https://traxion.global/es/integridad" target="_blank"
+                                rel="noopener noreferrer">Integridad</a></li>
+                        <li><a href="https://traxion.global/es/soluciones/empresas" target="_blank"
+                                rel="noopener noreferrer">Empresas</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="chat-bot-container">
-        <div class="chat-c1">
-        <div class="chat-header">
-            <h3>Evaluador de Mantenimiento</h3>
+    <div class="main-container">
+        <div class="sub-container">
+            <h2>¿Cuándo realizar el mantenimiento?</h2>
+            <p>¿Quieres saber cuándo es el mejor momento para realizar el mantenimiento de tus unidades? Nuestro
+                evaluador de mantenimiento te ayudará a planificarlo de manera eficiente, evitando costos innecesarios y
+                maximizando la vida útil de tus vehículos.</p>
+            <div class="semaforo">
+                <span class="signal" id="green"></span>
+                <span class="signal" id="orange"></span>
+                <span class="signal" id="red"></span>
+            </div>
+            <p>Dentro de nuestro código de colores para clasificar urgencia tenemos: <strong>Verde</strong> (Bajo),
+                <strong>Amarillo</strong> (Medio), <strong>Rojo</strong> (Alto)
+                dependiendo de tu situación, nuestro chatBot clasificará la necesidad de mantenimiento además hará
+                presentes puntos importantes de su análisis.</p>
         </div>
+        <div class="chat-bot-container">
+            <div class="chat-c1">
+                <div class="chat-header">
+                    <h3>Evaluador de Mantenimiento</h3>
+                </div>
 
-        <div class="chat-box" id="chatBox">
-            <div class="message bot">Hola, Soy el analista de riesgo de Traxión, ayudo a planificar el mantenimiento de
-                tus unidades.</div>
-            <div class="message bot">¿De qué rama es tu unidad? (Logística / Transporte de Carga / Movilidad Urbana)</div>
-        </div>
+                <div class="chat-box" id="chatBox">
+                    <div class="message bot">Hola, Soy el analista de riesgo de Traxión, ayudo a planificar el
+                        mantenimiento de
+                        tus unidades.</div>
+                    <div class="message bot">¿De qué area es tu unidad? (Logística / Transporte de Carga / Movilización
+                        Urbana)</div>
+                </div>
 
-        <div class="chat-input">
-            <input type="text" id="userInput" placeholder="Escribe tu respuesta..." />
-            <button onclick="sendMessage()">Enviar</button>
+                <div class="chat-input">
+                    <input type="text" id="userInput" placeholder="Escribe tu respuesta..." />
+                    <button onclick="sendMessage()">Enviar</button>
+                </div>
+            </div>
         </div>
+        <div class="sub-container">
+            <h2>Importancia de llevar un buen registro de mantenimiento</h2>
+            <p>Un buen registro de mantenimiento es fundamental para garantizar la seguridad, eficiencia y longevidad de
+                tus unidades. Nos permite identificar patrones de desgaste, prevenir fallos costosos y optimizar el uso
+                de recursos.</p>
+                <img src="ASSETS/mantenimiento.jpg" alt="Registro de mantenimiento" class="maintenance-image">
         </div>
-    </div>
-    <script src="JS/scripts.js"></script>
+        <script src="JS/scripts.js"></script>
 </body>
 
 </html>

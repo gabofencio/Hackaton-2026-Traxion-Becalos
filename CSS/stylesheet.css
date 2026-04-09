@@ -1,6 +1,8 @@
     :root {
         --primary-color: rgba(204, 219, 0, 1);
         --secondary-color: rgba(92, 95, 98, 1);
+        --primary-blur: rgba(204, 219, 0, 0.5);
+        --secondary-blur: rgba(92, 95, 98, 0.8);
     }
 
     html {
@@ -62,6 +64,7 @@
         flex-direction: row;
         justify-content: center;
         margin-left: auto;
+        
     }
 
     .left-link-container a {
@@ -206,9 +209,72 @@
     .switch input:checked+.slider {
         left: 28px;
     }
+/* info containers */
 
+    .main-container{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1rem;
+    }
 
+    .sub-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 1rem;
+        padding: 1rem;
+        border: 2px solid var(--secondary-color);
+        border-radius: 10px;
+        color:white;
+        width: 100%;
+        max-width: 400px;
+        height: 600px;
+        background-color: var(--secondary-blur);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+    .sub-container h2{
+        color: var(--primary-color);
+    }
 
+.semaforo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: black;
+    width:150px;
+    height:50px;
+    padding: 10px 5px;
+    border-radius: 10px;
+    align-items: center;
+}
+.semaforo .signal{
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    background-color: gray;
+    opacity: .2;
+}
+#red{
+    background-color: red;
+}
+#orange{
+    background-color: orange;
+}
+#green{ 
+    background-color: green;
+}
+
+.maintenance-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+}
     /*Chat Bot*/
     .chat-bot-container {
         display: flex;
@@ -217,8 +283,6 @@
         justify-content: center;
         gap: 1rem;
         padding: 1rem;
-        border: 2px solid var(--secondary-color);
-
     }
 
     .chat-form {
@@ -246,11 +310,11 @@
         width: 100%;
         max-width: 400px;
         height: 600px;
-        background: var(--secondary-color);
+        background: var(--secondary-blur);
         padding: 10px;
         border-radius: 10px;
         margin-bottom: 10px;
-
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     }
 
     .chat-box {

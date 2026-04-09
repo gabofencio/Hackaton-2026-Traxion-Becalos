@@ -10,9 +10,6 @@ toggleBtn.addEventListener("click", () => {
         input.focus();
     }
 });
-// boton de envio.
-
-
 
 function calcularRiesgo(data) {
     let riesgo = 0;
@@ -75,6 +72,7 @@ function evaluarUnidad(data) {
     const nivel = clasificarRiesgo(riesgo);
     const razones = explicar(data);
     const recomendacion = accion(riesgo, data);
+
     return {
         riesgo,
         nivel,
@@ -85,6 +83,7 @@ function evaluarUnidad(data) {
 
 //lectura de datos y ejecución
 function run() {
+    const chatBox = document.getElementById("chatBox");
     const data = {
         kmSinServicio: Number(document.getElementById("km").value),
         edad: Number(document.getElementById("edad").value),
@@ -92,6 +91,7 @@ function run() {
         carga: document.getElementById("carga").value,
         codigoFalla: document.getElementById("codigoFalla").value !== "none",
         kmLlantas: Number(document.getElementById("kmLlantas").value)
+
     };
 
     const campos = document.querySelectorAll("#chatBody input, #chatBody select");
@@ -103,7 +103,7 @@ function run() {
         }
     }
     const res = evaluarUnidad(data);
-
+    actualizarSemaforo(res.nivel);
     document.getElementById("resultado").innerHTML = `
         <h2 style="color:${colorRiesgo(res.nivel)}">
             Riesgo: ${res.nivel} (${res.riesgo})%
@@ -113,7 +113,19 @@ function run() {
             ${res.razones.map(r => `<li>${r}</li>`).join("")}
         </ul>
     `;
+    step = 2;
+
+    setTimeout(() => {
+        chatBox.innerHTML += `
+        <div class="message bot">
+            ¿Deseas contactar a un especialista o realizar otro análisis?
+        </div>
+    `;
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }, 2200);
 }
+
+
 // Clasificación de riesgo
 function clasificarRiesgo(riesgo) {
     if (riesgo <= 30) return "BAJO";
@@ -127,7 +139,24 @@ function colorRiesgo(nivel) {
     if (nivel === "MEDIO") return "orange";
     return "red";
 }
+// Semaforo dinamico
+function actualizarSemaforo(nivel) {
+    const green = document.getElementById("green");
+    const orange = document.getElementById("orange");
+    const red = document.getElementById("red");
 
+    green.style.opacity = "0.3";
+    orange.style.opacity = "0.3";
+    red.style.opacity = "0.3";
+
+    if (nivel === "BAJO") {
+        green.style.opacity = "1";
+    } else if (nivel === "MEDIO") {
+        orange.style.opacity = "1";
+    } else {
+        red.style.opacity = "1";
+    }
+}
 
 
 // conversación del chatbot
@@ -211,8 +240,30 @@ function sendMessage() {
             } else {
                 chatBox.innerHTML += `<div class="message bot">Por favor escribe: Logística, Transporte de Carga o Movilización Urbana</div>`;
             }
+        } else if (step === 2) {
+            if (userText.toLowerCase().includes("esp")) {
+                chatBox.innerHTML += `
+        <div class="message bot">
+            Te proporciono el siguiente Correo Electronico: <a href="mailto:contacto@traxion.com">contacto@traxion.com</a>
+        </div>
+    `;
+            } else if (userText.toLowerCase().includes("an")) {
+                step = 0;
+                document.querySelector(".chat-form-inline")?.remove();
+                chatBox.innerHTML += `
+        <div class="message bot">
+            Perfecto, iniciemos un nuevo análisis.<br>
+            ¿De qué tipo es tu unidad? (Logística / Transporte / Movilidad)
+        </div>
+    `;
+            } else{
+                chatBox.innerHTML += `<div class="message bot">Por favor escribe: Contactar especialista o Realizar otro análisis</div>`;
+            }
         }
+
 
         chatBox.scrollTop = chatBox.scrollHeight;
     }, 500);
+
+
 }
